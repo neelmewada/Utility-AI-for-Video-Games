@@ -27,8 +27,12 @@ public class PlayerController : TankController
 
         MoveVector = new Vector3(horizontal, 0, vertical);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 250))
         {
+            Vector3 dir = hit.point - transform.position;
+            dir.y = 0;
+            ShootDirection = dir.normalized;
+
             Shoot();
         }
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2872389373074361184}
   - component: {fileID: 2872389373074361187}
   m_Layer: 0
-  m_Name: Shell
+  m_Name: CannonShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 2872389373074361187}
+  collider: {fileID: 2872389373074361184}
   deathParticles: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
 --- !u!65 &2872389373074361184
 BoxCollider:

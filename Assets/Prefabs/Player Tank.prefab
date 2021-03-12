@@ -10459,6 +10459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 8427526191503806172}
+  collider: {fileID: 8427526191502721354}
   turret: {fileID: 8427526191500935492}
   destroyEffectPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
   healthSlider: {fileID: 8427526191490956170}
@@ -10469,7 +10470,7 @@ MonoBehaviour:
   health: 100
   shootForce: 50
   shootInterval: 1
-  cannonDamage: 25
+  cannonDamage: 20
 --- !u!1 &8427526191500749446
 GameObject:
   m_ObjectHideFlags: 0

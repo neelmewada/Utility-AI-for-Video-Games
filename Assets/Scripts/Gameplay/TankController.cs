@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public abstract class TankController : MonoBehaviour
 {
     public new Rigidbody rigidbody;
+    public new Collider collider;
     public Transform turret;
     public GameObject destroyEffectPrefab;
     public Slider healthSlider;
@@ -70,6 +71,8 @@ public abstract class TankController : MonoBehaviour
         if (!CanUpdate())
             return;
 
+        turret.rotation = Quaternion.LookRotation(ShootDirection, Vector3.up);
+
         m_ShootTimer += Time.deltaTime;
     }
 
@@ -79,11 +82,14 @@ public abstract class TankController : MonoBehaviour
         {
             m_ShootTimer = 0;
 
-            // Spawn a cannon
-            Cannon cannon = Instantiate(cannonPrefab.gameObject, shootPoint.position, Quaternion.LookRotation(shootPoint.forward, shootPoint.up)).GetComponent<Cannon>();
-            cannon.Initialize(this, cannonDamage); // Set owner and damage of the cannon
-            Vector3 shootDir = shootPoint.forward;
+            Vector3 shootDir = ShootDirection;
             shootDir.y = 0;
+
+            // Spawn a cannon
+            Cannon cannon = Instantiate(cannonPrefab.gameObject, shootPoint.position, Quaternion.LookRotation(shootDir, shootPoint.up)).GetComponent<Cannon>();
+            cannon.Initialize(this, cannonDamage); // Set owner and damage of the cannon
+            
+            Physics.IgnoreCollision(collider, cannon.collider);
 
             cannon.rigidbody.AddForce(shootDir * shootForce, ForceMode.VelocityChange); // Apply Impulse force to the cannon
         }

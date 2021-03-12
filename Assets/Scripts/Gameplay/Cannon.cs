@@ -4,6 +4,7 @@ using System.Collections;
 public class Cannon : MonoBehaviour
 {
     public new Rigidbody rigidbody;
+    public new Collider collider;
     public GameObject deathParticles;
 
     public TankController Owner { get; private set; }

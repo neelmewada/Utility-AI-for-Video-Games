@@ -10470,7 +10470,7 @@ MonoBehaviour:
   health: 100
   shootForce: 50
   shootInterval: 1
-  cannonDamage: 20
+  cannonDamage: 25
 --- !u!1 &8427526191500749446
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public new CameraController camera;
     public Transform tankSpawnPointsParent;
     public Transform collectableSpawnPointsParent;
+    public Transform waypointsParent;
     public PlayerController playerPrefab;
     public BotController botPrefab;
 

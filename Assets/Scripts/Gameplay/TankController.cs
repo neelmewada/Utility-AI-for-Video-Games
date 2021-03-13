@@ -71,7 +71,8 @@ public abstract class TankController : MonoBehaviour
         if (!CanUpdate())
             return;
 
-        turret.rotation = Quaternion.LookRotation(ShootDirection, Vector3.up);
+        if (ShootDirection != Vector3.zero)
+            turret.rotation = Quaternion.LookRotation(ShootDirection, Vector3.up);
 
         m_ShootTimer += Time.deltaTime;
     }
@@ -91,6 +92,7 @@ public abstract class TankController : MonoBehaviour
             
             Physics.IgnoreCollision(collider, cannon.collider);
 
+            cannon.rigidbody.velocity = Vector3.zero;
             cannon.rigidbody.AddForce(shootDir * shootForce, ForceMode.VelocityChange); // Apply Impulse force to the cannon
         }
     }

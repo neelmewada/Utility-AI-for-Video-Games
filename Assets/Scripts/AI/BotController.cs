@@ -13,6 +13,7 @@ public class BotController : TankController
     public NavMeshAgent agent;
     public float spotRadius = 10; // the max distance at which bot can spot the player
     public float waypointSkipDist = 3;
+    public float maxShootDist = 20;
     public bool debug = false;
 
     private List<Vector3> m_WaypointSelector = new List<Vector3>();
@@ -33,8 +34,9 @@ public class BotController : TankController
         base.Awake();
         ResetWaypoints();
 
-        m_AllStates.Add(new BotPatrolState());
-        m_AllStates.Add(new BotChaseState());
+        m_AllStates.Add(new BotPatrolState()); // Patrols thru waypoints
+        m_AllStates.Add(new BotChaseState()); // Chases the player tank
+        m_AllStates.Add(new BotFleeState()); // Flee from the player tank
 
         CurrentState = m_AllStates[0];
     }
@@ -107,8 +109,11 @@ public class BotController : TankController
     }
 
     // Resets the waypoint selector list. This list is used to cycle through waypoints
-    private void ResetWaypoints()
+    public void ResetWaypoints()
     {
+        if (GameManager.Instance.waypointsParent.childCount == m_WaypointSelector.Count)
+            return;
+
         m_WaypointSelector.Clear();
 
         for (int i = 0; i < GameManager.Instance.waypointsParent.childCount; i++)
@@ -152,5 +157,13 @@ public class BotController : TankController
     public bool IsPathEmpty()
     {
         return m_CurrentPath.Count == 0;
+    }
+
+    public void ForEachWaypoint(System.Action<Vector3> wpFunction)
+    {
+        for (int i = 0; i < m_WaypointSelector.Count; i++)
+        {
+            wpFunction?.Invoke(m_WaypointSelector[i]);
+        }
     }
 }

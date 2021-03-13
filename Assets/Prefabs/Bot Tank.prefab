@@ -10304,7 +10304,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.6
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -10539,12 +10539,13 @@ MonoBehaviour:
     type: 3}
   moveSpeed: 7
   health: 100
-  shootForce: 50
+  shootForce: 2
   shootInterval: 1
-  cannonDamage: 20
+  cannonDamage: 15
   agent: {fileID: 7093098366529623459}
   spotRadius: 25
   waypointSkipDist: 2
+  maxShootDist: 20
   debug: 0
 --- !u!195 &7093098366529623459
 NavMeshAgent:

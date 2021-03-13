@@ -26,6 +26,8 @@ public class Cannon : MonoBehaviour
             tank.ApplyDamage(Damage);
         }
 
+        if (tank == Owner) return;
+
         var instance = Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(instance, 3f);
 

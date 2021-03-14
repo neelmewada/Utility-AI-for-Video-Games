@@ -50,17 +50,28 @@ public class GameManager : MonoBehaviour
             messageDisplay.text = ""; // Clear the UI text
         }
 
-        if (!HasGameStarted)
-            return;
-
-        if (Player == null || Player.IsDead)
+        if (HasGameFinished)
         {
-            HasGameFinished = true;
-            messageDisplay.text = "Game Over!\nPress Enter to start again...";
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+
+        if (!HasGameStarted || HasGameFinished)
+            return;
+
+        if (Bots.Count == 0)
+        {
+            HasGameFinished = true;
+            messageDisplay.text = "You Won! All enemies are dead!\n Press Enter to play again...";
+            return;
+        }
+
+        if (Player == null || Player.IsDead)
+        {
+            HasGameFinished = true;
+            messageDisplay.text = "Game Over!\nPress Enter to play again...";
         }
     }
 

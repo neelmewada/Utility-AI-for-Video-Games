@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,10 +50,18 @@ public class GameManager : MonoBehaviour
             messageDisplay.text = ""; // Clear the UI text
         }
 
-        if (!HasGameStarted || HasGameFinished)
+        if (!HasGameStarted)
             return;
 
-
+        if (Player == null || Player.IsDead)
+        {
+            HasGameFinished = true;
+            messageDisplay.text = "Game Over!\nPress Enter to start again...";
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
     }
 
     public void OnBotDead(BotController bot)

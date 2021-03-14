@@ -7,7 +7,9 @@ using System.Collections.Generic;
 /// </summary>
 public abstract class BotState
 {
-
+    /// <summary>
+    /// Calculates the score of this state
+    /// </summary>
     public abstract float CalculateScore(BotController bot);
 
     /// <summary>
@@ -16,7 +18,7 @@ public abstract class BotState
     public abstract void OnStateChanged(BotController bot, BotState previousState);
 
     /// <summary>
-    /// Update logic for current state
+    /// Update logic for this state
     /// </summary>
     public abstract void UpdateState(BotController bot);
 }
@@ -104,12 +106,13 @@ public class BotFleeState : BotState
 {
     public override float CalculateScore(BotController bot)
     {
-        return (30 - bot.Health) * 2f;
+        return (40 - bot.Health) * 4f;
     }
 
     public override void OnStateChanged(BotController bot, BotState previousState)
     {
         bot.StoppingDistance = bot.waypointSkipDist;
+        Debug.Log("Flee State: " + bot.gameObject.name, bot.gameObject);
     }
 
     public override void UpdateState(BotController bot)
@@ -132,5 +135,13 @@ public class BotFleeState : BotState
         });
 
         bot.SetPathDestination(targetWP);
+
+        bot.ShootDirection = player.transform.position - bot.transform.position;
+
+        // Square distance calculation is faster and efficient
+        if (bot.ShootDirection.sqrMagnitude < bot.maxShootDist * bot.maxShootDist)
+        {
+            bot.Shoot();
+        }
     }
 }

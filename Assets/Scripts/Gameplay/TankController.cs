@@ -49,7 +49,7 @@ public abstract class TankController : MonoBehaviour
     /// </summary>
     protected bool CanUpdate()
     {
-        return GameManager.Instance.HasGameStarted && !GameManager.Instance.HasGameFinished;
+        return GameManager.Instance.HasGameStarted;
     }
 
     protected virtual void FixedUpdate()

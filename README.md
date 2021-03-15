@@ -4,7 +4,9 @@ A Tank Game project showcasing what Utility AI is and how to implement it in vid
 
 Downloadable demo available for macOS: [Download macOS Demo](https://github.com/neelmewada/Utility-AI-for-video-games/releases)
 
-Link to a commercial iOS game that me and my business partner worked, that implemented the Utility AI system: [Refill.io on App Store](https://apps.apple.com/us/app/refill-io/id1447779661)
+Link to a commercial iOS game that me and my business partner worked on, that implemented the Utility AI system: [Refill.io on App Store](https://apps.apple.com/us/app/refill-io/id1447779661)
+
+If you want to take a look at all the C# scripts, then they are at the location ```Assets/Scripts/``` in this GitHub repository.
 
 ### Screenshot
 

@@ -46,7 +46,7 @@ If you want to take a deeper dive into the Utility AI specific code, then check 
 
 In my Tanks Demo, each AI tank can have 3 states. Each state is derived from an abstract class ```BotState```. It contains 3 abstract method that each child State classes have to override. Check out classes of the 3 states below:
 
-##### 1) Patrol State:
+#### 1) Patrol State:
 In Patrol State, the AI tank will patrol through a set of waypoints. Below is the class that describes the Patrol State
 
 ```C#
@@ -69,7 +69,7 @@ public class BotPatrolState : BotState {
 }
 ```
 
-##### 2) Chase State:
+#### 2) Chase State:
 In Chase state, the AI tank will chase the player tank and also shoot it if it's in the shooting range.
 
 ```C#
@@ -109,7 +109,7 @@ public class BotChaseState : BotState {
 }
 ```
 
-##### 3) Flee State:
+#### 3) Flee State:
 In Flee state, the AI tank will flee away from the player when it's health is low.
 
 ```C#

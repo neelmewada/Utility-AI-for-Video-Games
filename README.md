@@ -14,13 +14,13 @@ If you want to take a look at all the C# scripts, then they are at the location 
 
 ------
 
-#### What is Utility AI?
+### What is Utility AI?
 
 Utility AI system is a state machine AI that determines which AI state to execute based on mathematical functions depending on factors like: player distance, health, score, etc.
 
 The AI state with the largest score is then executed.
 
-#### Why do you need Utility AI?
+### Why do you need Utility AI?
 
 AI is the most important aspect of developing a fun and addictive video game. It can make or break your game. And it has to be the right blend.
 

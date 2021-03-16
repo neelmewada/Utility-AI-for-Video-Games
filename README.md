@@ -27,8 +27,8 @@ AI is the most important aspect of developing a fun and addictive video game. It
 And the most simplest way to make a video game AI is with just if-else statements like the simple example below:
 
 ```C#
-if (playerDist < 5f) {
-	Shoot();   // Shoot state
+if (playerDist < 30f) {
+	ChaseAndShoot();   // Chase and shoot state
 } else if (health < 30) {
 	Flee();     // Flee state
 } else {
@@ -36,11 +36,21 @@ if (playerDist < 5f) {
 }
 ```
 
-You can definitely make it better by implementing a Finite State Machine, but that still will use basic conditions like these to determine which AI state to execute.
+You can definitely make it better by implementing a Finite State Machine, but that'll still use basic conditions like these to determine which AI state to execute.
 
 That's the problem that Utility AI solves. It uses mathematical calculations to calculate score of each viable state and executes the state with highest score value.
 
 It's this score calculations that makes the AI feel like a real player, but still be predictable and feel deterministic. Those are the key ingredients to making great video game AI's.
+
+Here's a super basic example of how Utility AI works:
+
+```C#
+float patrolScore = 10; // constant score for patrol state
+float chaseScore = 30 - playerDist; // lesser the player distance, higher the chase score
+float fleeScore = 40 - tankHealth; // lesser the tank health, higher the flee score
+
+// Execute the state with the highest score value...
+```
 
 ## Implementation in Tanks Demo
 

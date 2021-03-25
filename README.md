@@ -2,6 +2,8 @@
 
 A Tank Game project showcasing what Utility AI is and how to implement it in video games, using Unity Engine and C#
 
+Watch the Gameplay video here: **[Watch Gameplay Video](https://youtu.be/hXejkZ2fXNw)**
+
 Downloadable demo available for macOS: [Download macOS Demo](https://github.com/neelmewada/Utility-AI-for-video-games/releases)
 
 Link to a commercial iOS game that me and my business partner worked on, that implemented the Utility AI system: [Refill.io on App Store](https://apps.apple.com/us/app/refill-io/id1447779661) (This game is available only on US App Store)
